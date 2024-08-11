@@ -6,7 +6,7 @@
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:51:40 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/08 16:22:07 by abastard         ###   ########.fr       */
+/*   Updated: 2024/08/11 17:25:21 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,26 @@ void    deallocate(Node** root)
     }
     
 }
-
+//Elimina un nodo
 void    remove_node(Node** root, int location)
+{
+    size_t i;
+    
+    i = 0;
+    Node* curr = *root;
+    while (i != (location-1))
+    {
+        curr = curr->next;
+        i++;
+    }
+    Node* aux = curr->next;
+    curr->next = curr->next->next;
+    curr = curr->next;
+    free(aux);
+    
+}
+
+void    change_list(Node** root, int location)
 {
     size_t i;
     
