@@ -6,7 +6,7 @@
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:51:40 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/11 17:25:21 by abastard         ###   ########.fr       */
+/*   Updated: 2024/08/11 19:10:07 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,132 +19,68 @@ typedef struct Node
     struct Node* prev;
 } Node;
 
-//Función para insertar datos al final de la lista
-void    insert_end(Node** root, int value)
+void    insert_in_A(Node **A, int value)
 {
-    //Creamos el nuevo nodo
-    Node* new_node = malloc(sizeof(Node));
-    if (new_node == NULL)
-        exit (1);
-    //Asignamos los valores al nuevo nodo
-    new_node -> next = NULL;
-    new_node ->x = value;
-    //Comprobamos si hay algo en la lista, si no, el primer dato es el nuevo nodo
-    if (*root == NULL)
-    {
-        *root = new_node;
-        return;
-    }
-    //A partir de aqui, insertamos nuevo nodo en la lista.
-    Node* curr = *root;
-    while (curr ->next != NULL){
-    curr = curr->next;
-    }
-    curr ->next = new_node;
-}
-
-//Inserta un dato el primero de la lista
-void insert_first(Node **root, int value)
-{
-    Node* new_node = malloc(sizeof(Node));
+    Node* new_node;
+    new_node = malloc(sizeof(Node));
     if (new_node == NULL)
         return;
-    new_node ->x = value;
-    new_node ->next = *root;
-
-    *root = new_node;
+    new_node->x=value;
+    new_node->next = *A;
+    *A = new_node;
+    
 }
 
-//Insertar dato en  el segundo puesto de la lista
-void    insert_i(Node** root, int value)
+void    push_B(Node **A, Node **B)
 {
-    size_t i;
-    i = 0;
-    Node* curr = *root;
-    //Creamos el nuevo nodo
-    Node* new_node = malloc(sizeof(Node));
+    if (!A)
+        return;
+    Node* a = *A;
+    Node* new_node;
+    new_node = malloc(sizeof(Node));
     if (new_node == NULL)
-        exit (1);
-    new_node ->x = value;
-    //Le asignamos al nodo 1 la dirección del nuevo nodo
-    while (i != 0)
-    {
-        curr = curr->next;
-        i++;
-    }
-    new_node->next = curr->next;
-    curr->next = new_node;
+        return;
+    new_node->x = a->x;
+    new_node->next = *B;
+    *B = new_node;
+    Node* aux = a;
+    a = a->next;
+    free(aux);
+    
 }
 
-//Limpia la memoria de todos los nodods
-void    deallocate(Node** root)
+void    deallocate(Node **A)
 {
-    Node* curr = *root;    
+    Node* curr = *A;
     while (curr != NULL)
     {
         Node* aux = curr;
         curr = curr->next;
         free(aux);
     }
-    
-}
-//Elimina un nodo
-void    remove_node(Node** root, int location)
-{
-    size_t i;
-    
-    i = 0;
-    Node* curr = *root;
-    while (i != (location-1))
-    {
-        curr = curr->next;
-        i++;
-    }
-    Node* aux = curr->next;
-    curr->next = curr->next->next;
-    curr = curr->next;
-    free(aux);
+    *A = NULL;
     
 }
 
-void    change_list(Node** root, int location)
-{
-    size_t i;
-    
-    i = 0;
-    Node* curr = *root;
-    while (i != (location-1))
-    {
-        curr = curr->next;
-        i++;
-    }
-    Node* aux = curr->next;
-    curr->next = curr->next->next;
-    curr = curr->next;
-    free(aux);
-    
-}
 
 int    main(int argc, char **argv)
 {
-//Lista enlazada de 2 caracteres 1 y 2. La lista acaba en null.
-   Node* root = malloc(sizeof(Node));
-   if (root == NULL)
-        exit (1);
-   root ->x = 3;
-   root ->next = NULL;
-    insert_first(&root, 1);
-    insert_end(&root, 5);
-    insert_i(&root, 4);
-    insert_i(&root, 2);
-    remove_node(&root,1); 
-//Bucle de iteracion de la lista
-
-    Node* curr = root;
-    while (curr != NULL){
-        printf("%d \n", curr->x);
-        curr = curr->next;
+    Node* A;
+    Node* B;
+    insert_in_A(&A, 1);
+    insert_in_A(&A, 2);
+    insert_in_A(&A, 3);
+    push_B(&A,&B);
+    push_B(&A,&B);
+    printf("Lista A\n");
+    for (Node* curr = A; curr != NULL; curr = curr->next){
+        printf("%d\n",curr->x); 
     }
-    deallocate(&root);
+    printf("Lista B\n");
+    for (Node* curr = B; curr != NULL; curr = curr->next){
+        printf("%d\n",curr->x); 
+    }
+    deallocate(&A);
+    deallocate(&B);
     return(0);
 }
