@@ -6,7 +6,7 @@
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 11:27:48 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/08 12:02:07 by abastard         ###   ########.fr       */
+/*   Updated: 2024/08/15 12:49:27 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,12 @@
 # define HEX_LOW_BASE "0123456789abcdef"
 # define DECIMAL "0123456789"
 
-typedef struct s_stack_node
+typedef struct Node
 {
-    int                     value;
-    int                     current_position;
-    int                     final_index;
-    int                     push_price;
-    bool                    above_median;
-    bool                    cheapest;
-    struct  s_stack_node    *target_node;
-    struct  s_stack_node    *next;
-    struct  s_stack_node    *prev;
-    
-}               t_stack_node;
+    int x;
+    struct Node* next;
+    struct Node* prev;
+} Node;
 
 
 void    push_swap(char *str, ...);
@@ -53,5 +46,19 @@ void	ft_pointer_pf(void *ptr, size_t *counter);
 
 /* auxiliary functions */
 char	*ft_changer_pf(unsigned long long n, char *base);
+char	**ft_split(char const *s, char c);
+
+/* algoritmic funcions */
+void    insert(Node **A, int value);
+void    pa(Node **A, Node **B);
+void    pb(Node **A, Node **B);
+void    rr(Node **A, Node **B);
+void    rrr(Node **A, Node **B);
+void    rrx(Node **A);
+void    rx(Node **A);
+void    ss(Node **A, Node **B);
+void    sx(Node **A);
+void    deallocate(Node **A);
+void    deallocate_first(Node **A);
 
 #endif
