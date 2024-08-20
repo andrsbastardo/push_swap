@@ -6,7 +6,7 @@
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:17:25 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/20 14:26:14 by abastard         ###   ########.fr       */
+/*   Updated: 2024/08/20 15:57:58 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		dest[i] = s1[i];
 		i++;
 	}
+	
 	while (s2[j] != '\0')
 	{
 		dest[i] = s2[j];
