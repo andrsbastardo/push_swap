@@ -6,7 +6,7 @@
 #    By: abastard <abastard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/29 11:17:38 by abastard          #+#    #+#              #
-#    Updated: 2024/08/17 10:34:29 by abastard         ###   ########.fr        #
+#    Updated: 2024/08/19 08:53:00 by abastard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,6 @@ SRC =	./ft_printf/ft_aux.c ./ft_printf/ft_character_pf.c \
 							./ft_swap/sx.c \
 							./ft_swap/deallocate.c \
 							./ft_swap/deallocate_first.c \
-							./ft_split.c \
 							./push_swap.c 
 							
 
@@ -54,7 +53,9 @@ main: all
 run: re main clean
 		./main.out
 		$(RM) main.out
-		
+	
+do: re main clean	
+		$(RM) $(OBJS)
 
 all: $(NAME)
 

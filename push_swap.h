@@ -6,7 +6,7 @@
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 11:27:48 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/17 10:34:16 by abastard         ###   ########.fr       */
+/*   Updated: 2024/08/19 08:53:26 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,10 @@ void	ft_hex_pf(unsigned int num, size_t *counter, char *base);
 void	ft_pointer_pf(void *ptr, size_t *counter);
 
 /* auxiliary functions */
-char	*ft_changer_pf(unsigned long long n, char *base);
-char	**ft_split(char const *s, char c);
-size_t	ft_strlcpy(char *dest, const char *src, size_t n);
-void	*ft_calloc(size_t nmemb, size_t size);
-void	ft_bzero(void *s, size_t n);
-
+char	    *ft_changer_pf(unsigned long long n, char *base);
+size_t	    ft_strlcpy(char *dest, const char *src, size_t n);
+void	    *ft_calloc(size_t nmemb, size_t size);
+void	    ft_bzero(void *s, size_t n);
 /* algoritmic funcions */
 void    insert(Node **A, int value);
 void    pa(Node **A, Node **B);
