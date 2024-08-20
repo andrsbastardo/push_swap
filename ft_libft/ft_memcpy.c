@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insert.c                                           :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/15 12:06:37 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/20 10:35:14 by abastard         ###   ########.fr       */
+/*   Created: 2024/01/11 17:02:09 by abastard          #+#    #+#             */
+/*   Updated: 2024/08/20 14:26:14 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void    insert(Node **A, int n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-    Node* new_node;
-    Node* aux = *A;
-    Node* curr = aux;
+	char		*dstc;
+	const char	*srccc;
 
-    new_node = malloc(sizeof(Node));
-    if (new_node == NULL)
-        return;
-    new_node->x= n;
-    new_node->next = *A;
-    new_node->prev = NULL;
-    if (!curr)
-    {
-        *A = new_node; // Se rompe al asignar el nuevo nodo a la lista
-    }
-    else
-    {
-        curr->prev = new_node;
-        *A = new_node;
-    }   
+	dstc = (char *)dst;
+	srccc = (const char *)src;
+	if ((dst == src) || n == 0)
+		return (dst);
+	if (!dst && !src)
+		return (0);
+	while (n != 0)
+	{
+		*dstc++ = *srccc++;
+		n--;
+	}
+	return (dst);
 }

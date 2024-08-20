@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insert.c                                           :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/15 12:06:37 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/20 10:35:14 by abastard         ###   ########.fr       */
+/*   Created: 2024/01/10 18:27:38 by usuadmin          #+#    #+#             */
+/*   Updated: 2024/08/20 14:26:14 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void    insert(Node **A, int n)
+void	*ft_memset(void *dest, int c, size_t count)
 {
-    Node* new_node;
-    Node* aux = *A;
-    Node* curr = aux;
+	__SIZE_TYPE__	i;
+	unsigned char	*str;
 
-    new_node = malloc(sizeof(Node));
-    if (new_node == NULL)
-        return;
-    new_node->x= n;
-    new_node->next = *A;
-    new_node->prev = NULL;
-    if (!curr)
-    {
-        *A = new_node; // Se rompe al asignar el nuevo nodo a la lista
-    }
-    else
-    {
-        curr->prev = new_node;
-        *A = new_node;
-    }   
+	i = 0;
+	str = (unsigned char *)dest;
+	while (i < count)
+	{
+		str[i] = c;
+		i++;
+	}
+	return (dest);
 }

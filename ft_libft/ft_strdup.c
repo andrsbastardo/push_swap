@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insert.c                                           :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/15 12:06:37 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/20 10:35:14 by abastard         ###   ########.fr       */
+/*   Created: 2024/01/18 16:40:31 by abastard          #+#    #+#             */
+/*   Updated: 2024/08/20 14:26:14 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void    insert(Node **A, int n)
+char	*ft_strdup(const char *s)
 {
-    Node* new_node;
-    Node* aux = *A;
-    Node* curr = aux;
+	char	*str;
+	char	*dest;
+	int		i;
 
-    new_node = malloc(sizeof(Node));
-    if (new_node == NULL)
-        return;
-    new_node->x= n;
-    new_node->next = *A;
-    new_node->prev = NULL;
-    if (!curr)
-    {
-        *A = new_node; // Se rompe al asignar el nuevo nodo a la lista
-    }
-    else
-    {
-        curr->prev = new_node;
-        *A = new_node;
-    }   
+	i = 0;
+	str = (char *)s;
+	dest = (char *)malloc(ft_strlen(str) + 1);
+	if (!dest)
+		return (NULL);
+	while (str[i] != '\0')
+	{
+		dest[i] = str[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }

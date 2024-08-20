@@ -1,36 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insert.c                                           :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/15 12:06:37 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/20 10:35:14 by abastard         ###   ########.fr       */
+/*   Created: 2024/02/13 11:10:37 by abastard          #+#    #+#             */
+/*   Updated: 2024/08/20 14:26:14 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void    insert(Node **A, int n)
+void	ft_putendl_fd(char *s, int fd)
 {
-    Node* new_node;
-    Node* aux = *A;
-    Node* curr = aux;
-
-    new_node = malloc(sizeof(Node));
-    if (new_node == NULL)
-        return;
-    new_node->x= n;
-    new_node->next = *A;
-    new_node->prev = NULL;
-    if (!curr)
-    {
-        *A = new_node; // Se rompe al asignar el nuevo nodo a la lista
-    }
-    else
-    {
-        curr->prev = new_node;
-        *A = new_node;
-    }   
+	ft_putstr_fd(s, fd);
+	ft_putchar_fd('\n', fd);
 }

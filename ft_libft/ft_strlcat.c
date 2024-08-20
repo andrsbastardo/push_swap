@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   insert.c                                           :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/15 12:06:37 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/20 10:35:14 by abastard         ###   ########.fr       */
+/*   Created: 2024/01/14 10:45:14 by abastard          #+#    #+#             */
+/*   Updated: 2024/08/20 14:26:14 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void    insert(Node **A, int n)
+size_t	ft_strlcat(char *dest, const char *src, size_t n)
 {
-    Node* new_node;
-    Node* aux = *A;
-    Node* curr = aux;
+	size_t	i;
+	size_t	j;
+	size_t	dest2;
+	size_t	src2;
 
-    new_node = malloc(sizeof(Node));
-    if (new_node == NULL)
-        return;
-    new_node->x= n;
-    new_node->next = *A;
-    new_node->prev = NULL;
-    if (!curr)
-    {
-        *A = new_node; // Se rompe al asignar el nuevo nodo a la lista
-    }
-    else
-    {
-        curr->prev = new_node;
-        *A = new_node;
-    }   
+	i = 0;
+	dest2 = ft_strlen(dest);
+	src2 = ft_strlen(src);
+	if (n <= dest2 || n == 0)
+		return (src2 + n);
+	j = dest2;
+	while ((src[i]) && i < (n - 1 - dest2))
+	{
+		dest[j] = src[i];
+		i++;
+		j++;
+	}
+	dest[j] = '\0';
+	return (src2 + dest2);
 }

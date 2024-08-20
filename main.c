@@ -6,7 +6,7 @@
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:51:40 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/19 08:51:03 by abastard         ###   ########.fr       */
+/*   Updated: 2024/08/20 12:08:33 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,44 @@
 int    main(int argc, char **argv)
 {
     int     i;
-    char    b;
-    char    *c;
-    Node    *A;
+    int     b;
+    int     flag;
+    int     **c;
+    Node    *A = malloc(sizeof(Node));
+    deallocate_first(&A);
+
+    i = 1;
+    b = 0;
+    flag = 0;
+    // Comprueba que los datos esten metidos bien
+    /* while (i < argc)
+    { 
+        while (argv[i][b] != '\0')
+        {
+            if  (argv[i][b] == '-' || argv[i][b] == '+')
+            {
+                flag = 1;
+                b++;
+            }
+            if ((argv[i][b] < '0' || argv[i][b] >'9') 
+                || (flag == 1 && (argv[i][b] == 43 || argv[i][b] == 45))) //Esto esta mal
+            {
+                ft_printf("Error2\n");
+                return(0);
+            }
+            b++;
+        }
+         i++;
+         ft_printf("Error3\n");
+    } */
+   
+   //Pasa los datos de char a int, asignandolos a su propio array de punteros
+   while (i < argc)
+   {
+    
+   }
+   
+    
     
     
     
@@ -32,6 +67,6 @@ int    main(int argc, char **argv)
         printf("%d\n",curr->x);
     }
     deallocate(&A);
-/*     deallocate(&B); */
+    /* deallocate(&B); */
     return(0);
 }

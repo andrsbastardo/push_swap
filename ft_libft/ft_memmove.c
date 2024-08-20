@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/18 15:51:34 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/17 10:29:24 by abastard         ###   ########.fr       */
+/*   Created: 2024/01/12 17:26:22 by abastard          #+#    #+#             */
+/*   Updated: 2024/08/20 14:26:14 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h" 
+#include "../push_swap.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	int	*ptr;
+	char	*dest2;
+	char	*src2;
+	size_t	i;
 
-	if (nmemb >= SIZE_MAX || size >= SIZE_MAX || (nmemb * size) > SIZE_MAX)
-		return (NULL);
-	ptr = (int *)malloc(nmemb * size);
-	if (!ptr)
-		return (NULL);
-	ft_bzero(ptr, nmemb * size);
-	return (ptr);
+	dest2 = (char *)dest;
+	src2 = (char *)src;
+	if (!dest && !src)
+		return (dest);
+	if ((size_t *)dest >= (size_t *)src && dest && src)
+	{
+		while (n--)
+			dest2[n] = src2[n];
+	}
+	else
+	{
+		i = 0;
+		while (i < n)
+		{
+			dest2[i] = src2[i];
+			i++;
+		}
+	}
+	return (dest);
 }

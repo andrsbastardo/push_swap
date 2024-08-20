@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/11 16:19:11 by usuadmin          #+#    #+#             */
-/*   Updated: 2024/08/17 10:33:58 by abastard         ###   ########.fr       */
+/*   Created: 2024/01/15 17:44:00 by abastard          #+#    #+#             */
+/*   Updated: 2024/08/20 14:26:14 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_tolower(int c)
 {
-	size_t			i;
-	unsigned char	*str;
-
-	i = 0;
-	str = (unsigned char *)s;
-	while (i < n)
+	if (c >= 65 && c <= 90)
 	{
-		str[i] = 0;
-		i++;
+		return (c + 32);
 	}
+	else
+		return (c);
 }

@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/14 10:31:31 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/17 10:27:46 by abastard         ###   ########.fr       */
+/*   Created: 2024/01/16 18:30:20 by abastard          #+#    #+#             */
+/*   Updated: 2024/08/20 14:26:14 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t n)
+int	ft_atoi(const char *str)
 {
-	char	*final;
+	int				a;
+	int				sign;
+	unsigned int	aux;
 
-	if (!n)
-		return (ft_strlen(src));
-	final = (char *)src;
-	while ((n > 1) && (*final))
+	a = 0;
+	sign = 1;
+	aux = 0;
+	while (str[a] == ' ' || (str[a] >= 9 && str[a] <= 13))
+		a++;
+	if (str[a] == '-' || str[a] == '+')
 	{
-		*dest++ = *final++;
-		n--;
+		if (str[a] == '-')
+			sign *= -1;
+		a++;
 	}
-	if (*dest)
-		*dest = '\0';
-	return (ft_strlen(src));
+	while (str[a] >= '0' && str[a] <= '9')
+	{
+		aux = (aux * 10) + (str[a] - '0');
+		a++;
+	}
+	return (aux * sign);
 }
