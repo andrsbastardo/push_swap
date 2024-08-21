@@ -6,7 +6,7 @@
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:51:40 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/21 12:54:15 by abastard         ###   ########.fr       */
+/*   Updated: 2024/08/21 13:27:37 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ int    main(int argc, char **argv)
     str = order(argc, argv);
     Node    *A = malloc(sizeof(Node));
     deallocate_first(&A);
-    engine(str, &A);
+ 
+    engine(str); //Error de segmentación de memoria aqui
+    free(str);
 
     
 /*     printf("Lista B\n");
