@@ -6,7 +6,7 @@
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 11:27:48 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/20 15:17:19 by abastard         ###   ########.fr       */
+/*   Updated: 2024/08/21 12:13:04 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	ft_pointer_pf(void *ptr, size_t *counter);
 
 /* auxiliary functions */
 char	    *ft_changer_pf(unsigned long long n, char *base);
+char        *order(int argc, char **argv);
 
 /* libft functions */
 int		ft_isalpha(int c);

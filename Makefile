@@ -6,7 +6,7 @@
 #    By: abastard <abastard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/29 11:17:38 by abastard          #+#    #+#              #
-#    Updated: 2024/08/20 14:24:50 by abastard         ###   ########.fr        #
+#    Updated: 2024/08/21 12:22:00 by abastard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRC =	./ft_printf/ft_aux.c ./ft_printf/ft_character_pf.c \
 							./ft_swap/sx.c \
 							./ft_swap/deallocate.c \
 							./ft_swap/deallocate_first.c \
+							./ft_swap/order.c \
 							./ft_libft/ft_isalpha.c \
 							./ft_libft/ft_isdigit.c \
 							./ft_libft/ft_isalnum.c \
