@@ -6,7 +6,7 @@
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 11:27:48 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/22 14:04:18 by abastard         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:17:37 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int		ft_isprint(int c);
 size_t	ft_strlen(const char *str);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
-long		ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 void	*ft_memset(void *dest, int c, size_t count);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
@@ -82,7 +82,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
 void	ft_putendl_fd(char *s, int fd);
 
 

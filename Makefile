@@ -6,7 +6,7 @@
 #    By: abastard <abastard@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/29 11:17:38 by abastard          #+#    #+#              #
-#    Updated: 2024/08/21 12:55:40 by abastard         ###   ########.fr        #
+#    Updated: 2024/08/22 14:18:14 by abastard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,6 @@ SRC =	./ft_printf/ft_aux.c ./ft_printf/ft_character_pf.c \
 							./ft_libft/ft_striteri.c \
 							./ft_libft/ft_putchar_fd.c \
 							./ft_libft/ft_putstr_fd.c \
-							./ft_libft/ft_putnbr_fd.c \
 							./ft_libft/ft_putendl_fd.c \
 							./push_swap.c 
 							

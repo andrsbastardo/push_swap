@@ -6,7 +6,7 @@
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 12:54:32 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/22 14:08:01 by abastard         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:38:59 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,15 @@ static size_t	string_counter(char *s, char c)
 	}
 	return (string);
 }
+static char	**free_willy(char **res, size_t i)
+{
+	while (i--)
+	{
+		free(res[i]);
+	}
+	free(res);
+	return (NULL);
+}
 
 char	engine_check(char **res)
 {
@@ -58,8 +67,11 @@ void    engine(Node **A, char *str)
     int     i;
     int     last;
     
-	if(str == NULL)
+	if(!str)
+	{
+		free(str);
 		return;
+	}
 	i = 0;
     c = ' ';
     last = string_counter(str, c);
@@ -72,4 +84,5 @@ void    engine(Node **A, char *str)
         insert(A, ft_atoi(res[i]));
         i++;
     }
+	free_willy(res, last);
 }

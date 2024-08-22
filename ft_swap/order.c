@@ -6,7 +6,7 @@
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:58:38 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/22 11:50:24 by abastard         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:37:43 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int    check(char *str)
     int flag;
 
     i = 1;
-    // Comprueba que los datos esten metidos bien
     while (str[i] != '\0')
     {
         if(ft_isdigit(str[i]) || str[i] == ' ')
@@ -55,6 +54,11 @@ char    *order(int argc, char **argv)
         i++;
     }
     tag = check(str);
+    if(!str)
+    {
+        free(str);
+        return(NULL);
+    }
     if(tag == 0)
         return(NULL);
     else
