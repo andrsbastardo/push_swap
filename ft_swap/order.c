@@ -6,12 +6,12 @@
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:58:38 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/21 12:47:44 by abastard         ###   ########.fr       */
+/*   Updated: 2024/08/22 11:50:24 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-void    check(char *str)
+int    check(char *str)
 {
     int i;
     int flag;
@@ -25,19 +25,16 @@ void    check(char *str)
         else if (str[i] == '+' || str[i] =='-')
         {
             flag++;
-            if (flag > 1)
-            {
+            if (flag > 1){
                 ft_printf("Error\n");
-                return;
-            }
+                return(0);}
         }
-        else
-        {
+        else{
             ft_printf("Error\n");
-            return;
-        }
+            return(0);}
         i++;
     }
+    return(1);
 }
 
 
@@ -46,6 +43,7 @@ char    *order(int argc, char **argv)
     char    *str;
     char    *aux;
     int     i;
+    int     tag;
     
     i = 1;
     str = "";
@@ -56,6 +54,9 @@ char    *order(int argc, char **argv)
         free(aux);
         i++;
     }
-    check(str);
-    return(str);
+    tag = check(str);
+    if(tag == 0)
+        return(NULL);
+    else
+        return(str);
 }

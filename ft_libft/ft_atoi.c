@@ -6,18 +6,19 @@
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 18:30:20 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/20 14:26:14 by abastard         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:04:49 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	int				a;
-	int				sign;
-	unsigned int	aux;
-
+	long			sign;
+	unsigned long	aux;
+	long b;
+	
 	a = 0;
 	sign = 1;
 	aux = 0;
@@ -34,5 +35,6 @@ int	ft_atoi(const char *str)
 		aux = (aux * 10) + (str[a] - '0');
 		a++;
 	}
-	return (aux * sign);
+	b = aux*sign;
+	return (b);
 }

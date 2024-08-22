@@ -6,7 +6,7 @@
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:51:40 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/21 13:27:37 by abastard         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:06:37 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,11 @@
 
 int    main(int argc, char **argv)
 {
-    char * str;
-    
-    str = order(argc, argv);
     Node    *A = malloc(sizeof(Node));
     deallocate_first(&A);
- 
-    engine(str); //Error de segmentación de memoria aqui
-    free(str);
+    Node    *B = malloc(sizeof(Node));
+    deallocate_first(&B);
+    engine(&A, order(argc, argv));
 
     
 /*     printf("Lista B\n");
@@ -35,6 +32,6 @@ int    main(int argc, char **argv)
         printf("%d\n",curr->x);
     }
     deallocate(&A);
-    /* deallocate(&B); */
+/*     deallocate(&B); */
     return(0);
 }

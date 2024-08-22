@@ -6,7 +6,7 @@
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 12:54:32 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/21 13:27:25 by abastard         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:08:01 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,41 @@ static size_t	string_counter(char *s, char c)
 	return (string);
 }
 
-void    engine(char *str)
+char	engine_check(char **res)
+{
+	int i;
+	long b;
+	
+	i= 0;
+	b = ft_atoi(res[i]);
+	if (b > INT_MAX || b < INT_MIN)
+	{
+		ft_printf("Error\n");
+		return('a');
+	}
+	else
+		return('b');
+}
+
+void    engine(Node **A, char *str)
 {
     char    c;
     char    **res;
     int     i;
     int     last;
-    int     b;
     
+	if(str == NULL)
+		return;
+	i = 0;
     c = ' ';
     last = string_counter(str, c);
-    res = ft_split(str, c); //Puede estar aqui el error?
+    res = ft_split(str, c);
+	free(str);
+	if (engine_check(res) == 'a')
+		return;
     while (i < last)
     {
-        b = ft_atoi(res[i]);
-        printf("%d\n",b);
+        insert(A, ft_atoi(res[i]));
         i++;
     }
 }
