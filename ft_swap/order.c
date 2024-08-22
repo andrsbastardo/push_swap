@@ -6,7 +6,7 @@
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:58:38 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/22 15:12:52 by abastard         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:23:30 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,8 @@ char    *order(int argc, char **argv)
     char    *aux;
     int     i;
     int     tag;
-    
+
     i = 1;
-    if(!argv)
-        return(NULL);
     while (i < argc)
     {
         aux = ft_strjoin(str, " ");    

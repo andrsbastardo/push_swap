@@ -6,7 +6,7 @@
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 12:54:32 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/22 15:11:40 by abastard         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:09:24 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ char	engine_check(char **res)
 {
 	int i;
 	long b;
-	
 	i= 0;
 	b = ft_atoi(res[i]);
 	if (b > INT_MAX || b < INT_MIN)
@@ -68,17 +67,13 @@ void    engine(Node **A, char *str)
     int     last;
     
 	if(!str || str == NULL)
-	{
-		free(str);
 		return;
-	}
 	i = 0;
     c = ' ';
     last = string_counter(str, c);
     res = ft_split(str, c);
 	free(str);
-	if (engine_check(res) == 'a')
-		return;
+		return;;
     while (i < last)
     {
         insert(A, ft_atoi(res[i]));
