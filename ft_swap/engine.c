@@ -6,7 +6,7 @@
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 12:54:32 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/22 14:38:59 by abastard         ###   ########.fr       */
+/*   Updated: 2024/08/22 15:11:40 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void    engine(Node **A, char *str)
     int     i;
     int     last;
     
-	if(!str)
+	if(!str || str == NULL)
 	{
 		free(str);
 		return;

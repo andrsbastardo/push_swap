@@ -6,13 +6,16 @@
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 12:51:40 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/22 14:45:35 by abastard         ###   ########.fr       */
+/*   Updated: 2024/08/22 15:16:35 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//Tener en cuenta nulos,l datos ordeandos, overflow al long,
+//Tener en cuenta, datos ordeandos, overflow al long.
+// Este comando genera numeros aleatorios
+// https://sites.google.com/42adel.org.au/42schoolwiki1/cursus/paced-system
+// seq -1000 1000 | sort -R | tail -n 500 | tr '\n' ' '
 
 int    main(int argc, char **argv)
 {
@@ -20,7 +23,6 @@ int    main(int argc, char **argv)
     deallocate_first(&A);
     /* Node    *B = malloc(sizeof(Node)); */
     /* deallocate_first(&B); */
-    printf("%d\n",argc);
     engine(&A, order(argc, argv));
 
     

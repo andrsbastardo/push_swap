@@ -6,7 +6,7 @@
 /*   By: abastard <abastard@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 17:58:38 by abastard          #+#    #+#             */
-/*   Updated: 2024/08/22 14:37:43 by abastard         ###   ########.fr       */
+/*   Updated: 2024/08/22 15:12:52 by abastard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,17 @@ int    check(char *str)
         else if (str[i] == '+' || str[i] =='-')
         {
             flag++;
-            if (flag > 1){
+            if (flag > 1)
+            {
                 ft_printf("Error\n");
-                return(0);}
+                return(0);
+            }
         }
-        else{
+        else
+        {
             ft_printf("Error\n");
-            return(0);}
+            return(0);
+        }
         i++;
     }
     return(1);
@@ -45,7 +49,8 @@ char    *order(int argc, char **argv)
     int     tag;
     
     i = 1;
-    str = "";
+    if(!argv)
+        return(NULL);
     while (i < argc)
     {
         aux = ft_strjoin(str, " ");    
@@ -54,11 +59,6 @@ char    *order(int argc, char **argv)
         i++;
     }
     tag = check(str);
-    if(!str)
-    {
-        free(str);
-        return(NULL);
-    }
     if(tag == 0)
         return(NULL);
     else
